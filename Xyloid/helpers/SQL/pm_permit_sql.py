@@ -1,5 +1,5 @@
 try:
-    from Kazu.helpers.SQL import BASE, SESSION
+    from Xyloid.helpers.SQL import BASE, SESSION
 except ImportError:
     raise AttributeError
 
