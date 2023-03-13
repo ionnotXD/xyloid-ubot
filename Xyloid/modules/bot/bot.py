@@ -7,10 +7,10 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from Kazu import CMD_HELP, app
-from Kazu.helpers.data import Data
-from Kazu.helpers.inline import cb_wrapper, paginate_help
-from Kazu import ids as users
+from Xyloid import CMD_HELP, app
+from Xyloid.helpers.data import Data
+from Xyloid.helpers.inline import cb_wrapper, paginate_help
+from Xyloid import ids as users
 
 @Client.on_callback_query()
 async def _callbacks(_, callback_query: CallbackQuery):
@@ -65,7 +65,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
     this_command = f"──「 **Help For {str(modul_name).upper()}** 」──\n\n"
     for x in commands:
         this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-    this_command += "© @Html12text"
+    this_command += "© @pscsb0yz"
     bttn = [
         [InlineKeyboardButton(text="Return", callback_data="reopen")],
     ]
