@@ -17,7 +17,7 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
-from Kazu import CMD_HELP, StartTime
+from Kazu import CMD_HELP, StartTime, app
 from Kazu.helpers.basic import edit_or_reply
 from Kazu.helpers.constants import WWW
 from Kazu.helpers.PyroHelpers import SpeedConvert
