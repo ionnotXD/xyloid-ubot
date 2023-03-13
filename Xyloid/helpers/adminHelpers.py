@@ -13,7 +13,7 @@ from time import time
 from pyrogram import Client
 from pyrogram.types import Message
 
-from Kazu.helpers.interval import IntervalHelper
+from Xyloid.helpers.interval import IntervalHelper
 
 
 async def CheckAdmin(client: Client, message: Message):
