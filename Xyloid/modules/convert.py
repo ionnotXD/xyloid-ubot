@@ -3,8 +3,8 @@ from pyrogram.enums import MessageMediaType
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.PyroHelpers import ReplyCheck
-from Kazu.helpers.tools import run_cmd
+from Xyloid.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.tools import run_cmd
 
 
 @Client.on_message(filters.command("extractaudio", cmd) & filters.me)
@@ -17,7 +17,7 @@ async def extract_audio(client: Client, message: Message):
         await message.edit("`Downloading Video . . .`")
         file = await client.download_media(
             message=replied,
-            file_name="Kazu/resources/",
+            file_name="Xyloid/resources/",
         )
         replied.video.duration
         out_file = file + ".mp3"
@@ -49,7 +49,7 @@ async def makevoice(client: Client, message: Message):
         await message.edit("`Downloading . . .`")
         file = await client.download_media(
             message=replied,
-            file_name="Kazu/resources/",
+            file_name="Xyloid/resources/",
         )
         if replied.video:
             replied.video.duration
