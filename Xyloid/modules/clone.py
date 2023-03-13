@@ -13,7 +13,7 @@ from pyrogram import *
 from pyrogram.types import *
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply, get_text, get_user
+from Xyloid.helpers.basic import edit_or_reply, get_text, get_user
 
 from .help import *
 
