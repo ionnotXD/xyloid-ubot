@@ -14,9 +14,9 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import aiosession
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
+from Xyloid import aiosession
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
 
 from .help import add_command_help
 
@@ -43,11 +43,11 @@ async def carbon_func(client: Client, message: Message):
         text = message.reply_to_message.text or message.reply_to_message.caption
     if not text:
         return await message.delete()
-    Kazu = await edit_or_reply(message, "`Preparing Carbon . . .`")
+    Xyloid = await edit_or_reply(message, "`Preparing Carbon . . .`")
     carbon = await make_carbon(text)
-    await Kazu.edit("`Uploading . . .`")
+    await Xyloid.edit("`Uploading . . .`")
     await asyncio.gather(
-        Kazu.delete(),
+        Xyloid.delete(),
         client.send_photo(
             message.chat.id,
             carbon,
