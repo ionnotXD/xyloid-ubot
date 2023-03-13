@@ -149,7 +149,7 @@ async def inline_query_handler(client: Client, query):
         elif string_given.startswith("helper"):
             answers = await help_function(answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
-        elif string_given.startswith("zu"):
+        elif string_given.startswith("xyloid"):
             answers = await karman_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=5)
     except Exception as e:
