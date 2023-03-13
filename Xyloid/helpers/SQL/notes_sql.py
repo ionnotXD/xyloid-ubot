@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Numeric, String, UnicodeText
 
-from Kazu.helpers.SQL import BASE, SESSION
+from Xyloid.helpers.SQL import BASE, SESSION
 
 
 class Note(BASE):
