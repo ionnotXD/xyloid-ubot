@@ -5,17 +5,17 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
 
 from .help import add_command_help
 
 
 @Client.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
 async def asupan_cmd(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Tunggu Sebentar...`")
+    Xyloid = await edit_or_reply(message, "Tunggu Sebentar Yah Ajg Asupan Lo Lagi Load...")
     await gather(
-        Kazu.delete(),
+        Xyloid delete(),
         client.send_video(
             message.chat.id,
             choice(
