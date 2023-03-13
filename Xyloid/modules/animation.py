@@ -18,8 +18,8 @@ from pyrogram.types import *
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply, get_text
-from Kazu.helpers.constants import MEMES
+from Xyloid.helpers.basic import edit_or_reply, get_text
+from Xyloid.helpers.constants import MEMES
 
 from .help import *
 
