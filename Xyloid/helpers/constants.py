@@ -10,22 +10,22 @@
 class First:
     ALIVE = "`Still Working On Fire 🔥`"
     REPO = """
-**Hey**, __I am using__ ✨ **𝙿𝚈𝚁𝙾𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃** ✨
+**Hey**, __I am using__ ✨ **𝚇𝚈𝙻𝙾𝙸𝙳-𝚄𝚂𝙴𝚁𝙱𝙾𝚃** ✨
 
 ✣ **Userbot Version :** `{}`
-✣ **Group Support :** [Kazu Support](t.me/kazusupportgrp)
-✣ **Channel Kazu :** [Kazu Session](t.me/Html12text)
-✣ **Owner Repo :** [Kazu](t.me/kenapatagkazu)
-✣ **Repo :** [PyroZu-Userbot](https://github.com/ionmusic/PyroZu-Userbot)
+✣ **Group Support :** [Xyloid Support](t.me/xyloidsupport)
+✣ **Channel Kazu :** [Xyloid Journey](t.me/pscsb0yz)
+✣ **Owner Repo :** [Xyloid](t.me/xyloidd)
+✣ **Repo :** [Xyloid-Userbot](https://github.com/axallll/Xyloid-Userbot)
 
 
 Powered by [PyroMan-Userbot](https://github.com/mrismanaziz/pyroman-userbot)"""
-    CREATOR = 'I was created by my master <a href="https://github.com/ionmusic/PyroZu-Userbot">Kazu</a> on a rainy day.'
+    CREATOR = 'I was created by my master <a href="https://github.com/axallll/Xyloid-Userbot">Loid</a> on a rainy day.'
     MSG_ON = """
-⚡ **PyroZu-Userbot Berhasil Di Aktifkan** ⚡
+⚡ **Xyloid-Userbot Berhasil Di Aktifkan** ⚡
 ━━
 ➠ **Userbot Version -** `{}`
-➠ **Ketik** `{}zu` **untuk Mengecheck Bot**
+➠ **Ketik** `{}loid` **untuk Mengecheck Bot**
 ━━
 """
 
