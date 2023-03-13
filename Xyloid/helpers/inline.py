@@ -8,7 +8,7 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 
-from Kazu import ids as list_users
+from Xyloid import ids as list_users
 
 looters = None
 
@@ -86,7 +86,7 @@ def inline_wrapper(func):
                         InlineQueryResultArticle(
                             title="Maaf, Kamu Harus Menjadi Pengguna Sudo Untuk Memakai Saya!",
                             input_message_content=InputTextMessageContent(
-                                "Atau Kamu Bisa Membuatnya Sendiri Di @kazusupportgrp"
+                                "Atau Kamu Bisa Membuatnya Sendiri Di @xyloidsupport"
                             ),
                         )
                     )
