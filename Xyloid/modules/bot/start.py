@@ -2,10 +2,10 @@
 #Thanks To All Dev
 
 
-from Kazu import app
+from Xyloid import app
 from pyrogram import filters
 
 
 @app.on_message(filters.command("start") & filters.private)
 async def start(client, message):
-   await message.reply_text("PyroZu-Userbot Telah Aktif")
+   await message.reply_text("Xyloid-Userbot Telah Aktif")
