@@ -18,7 +18,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
 from config import BRANCH, GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from Kazu import LOGGER
+from Xyloid import LOGGER
 
 HAPP = None
 
@@ -69,9 +69,9 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("Kazu").info(f"Git Client Found")
+        LOGGER("Xyloid").info(f"Git Client Found")
     except GitCommandError:
-        LOGGER("Kazu").info(f"Invalid Git Command")
+        LOGGER("Xyloid").info(f"Invalid Git Command")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -125,12 +125,12 @@ async def in_heroku():
 async def create_botlog(client):
     if HAPP is None:
         return
-    LOGGER("Kazu").info(
-        "TUNGGU SEBENTAR SAYANG. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK KAMU"
+    LOGGER("Xyloid").info(
+        "TUNGGU SEBENTAR YAH ANJING. GROUP LOG LO LAGI DI BIKIN"
     )
-    desc = "Group Log untuk PyroZu-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n💢 Powered By ~ @Html12text 💢"
+    desc = "Group Log untuk Xyloid-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n💢 Powered By ~ @pscsb0yz 💢"
     try:
-        gruplog = await client.create_supergroup(" Pyrozu-UserBot Log ", desc)
+        gruplog = await client.create_supergroup(" Xyloid-UserBot Log ", desc)
         if await in_heroku():
             heroku_var = HAPP.config()
             heroku_var["BOTLOG_CHATID"] = gruplog.id
@@ -138,6 +138,6 @@ async def create_botlog(client):
             path = dotenv.find_dotenv("config.env")
             dotenv.set_key(path, "BOTLOG_CHATID", gruplog.id)
     except Exception:
-        LOGGER("Kazu").warning(
+        LOGGER("Xyloid").warning(
             "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
