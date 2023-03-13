@@ -16,11 +16,11 @@ from requests import get
 
 from config import BLACKLIST_GCAST
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-#from Kazu.helpers.misc import HAPP, in_heroku
-from Kazu.helpers.tools import get_arg
-from Kazu.utils.misc import restart
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+#from Xyloid.helpers.misc import HAPP, in_heroku
+from Xyloid.helpers.tools import get_arg
+from Xyloid.utils.misc import restart
 
 from .help import add_command_help
 
@@ -43,7 +43,7 @@ del _GCAST_BLACKLIST
 @Client.on_message(filters.command("gcast", cmd) & filters.me)
 async def gcast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
-        Kazu = await edit_or_reply(message, "`𝚂𝙰𝙱𝙰𝚁 𝚈𝙰 𝚂𝙰𝚈𝙰𝙽𝙶 𝙸𝙽𝙸 𝚄𝙳𝙰𝙷 𝙼𝙰𝚄 𝙳𝙸 𝙺𝙸𝚁𝙸𝙼...`")
+        Xyloid = await edit_or_reply(message,"𝙱𝙴𝙽𝚃𝙰𝚁 𝚈𝙰𝙷 𝙱𝙴𝙱 𝙿𝙴𝚂𝙰𝙽 𝙻𝙾 𝙻𝙰𝙶𝙸 𝙳𝙸 𝙺𝙸𝚁𝙸𝙼 𝙺𝙴 𝚂𝙴𝙼𝚄𝙰 𝙶𝚁𝙾𝚄𝙿 𝙹𝙰𝙼𝙴𝚃...")
     else:
         return await message.edit_text("**Pesannya Mana Sayang**")
     done = 0
@@ -66,7 +66,7 @@ async def gcast_cmd(client: Client, message: Message):
                 except Exception:
                     error += 1
                     await asyncio.sleep(0.3)
-    await Kazu.edit_text(
+    await Xyloid.edit_text(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{error}` **Grup**"
     )
 
@@ -75,7 +75,7 @@ async def gcast_cmd(client: Client, message: Message):
 @Client.on_message(filters.command("gucast", cmd) & filters.me)
 async def gucast_cmd(client: Client, message: Message):
     if message.reply_to_message or get_arg(message):
-        Kazu = await edit_or_reply(message, "`𝚂𝙰𝙱𝙰𝚁 𝚈𝙰 𝚂𝙰𝚈𝙰𝙽𝙶 𝙸𝙽𝙸 𝚄𝙳𝙰𝙷 𝙼𝙰𝚄 𝙳𝙸 𝙺𝙸𝚁𝙸𝙼...`")
+        Xyloid = await edit_or_reply(message,  "𝚃𝚄𝙽𝙶𝙶𝚄 𝚂𝙴𝙱𝙴𝙽𝚃𝙰𝚁 𝚈𝙰𝙷 𝙸𝙽𝙸 𝚄𝙳𝙰𝙷 𝙼𝙰𝚄 𝙳𝙸 𝙺𝙸𝚁𝙸𝙼 𝙺𝙴 𝚂𝙴𝙼𝚄𝙰 𝚃𝙴𝙼𝙰𝙽 𝙼𝚄 𝚈𝙰𝙽𝙶 𝙹𝙰𝙼𝙴𝚃...")
         return await message.edit_text("**Pesannya Mana Sayang**")
     done = 0
     error = 0
@@ -97,7 +97,7 @@ async def gucast_cmd(client: Client, message: Message):
                 except Exception:
                     error += 1
                     await asyncio.sleep(0.3)
-    await Kazu.edit_text(
+    await Xyloid.edit_text(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{error}` **chat**"
     )
 
