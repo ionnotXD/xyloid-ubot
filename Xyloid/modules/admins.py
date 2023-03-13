@@ -14,10 +14,10 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.modules.help import add_command_help
-from Kazu.utils.misc import extract_user, extract_user_and_reason, list_admins
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.modules.help import add_command_help
+from Xyloid.utils.misc import extract_user, extract_user_and_reason, list_admins
 
 unmute_permissions = ChatPermissions(
     can_send_messages=True,
@@ -54,18 +54,18 @@ async def set_chat_photo(client: Client, message: Message):
 @Client.on_message(filters.group & filters.command("ban", cmd) & filters.me)
 async def member_ban(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Kazu.edit("I can't ban myself.")
+        return await Xyloid.edit("I can't ban myself.")
     if user_id in DEVS:
-        return await Kazu.edit("I can't ban my developer!")
+        return await Xyloid.edit("I can't ban my developer!")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await Kazu.edit("I can't ban an admin, You know the rules, so do i.")
+        return await Xyloid.edit("I can't ban an admin, You know the rules, so do i.")
     try:
         mention = (await client.get_users(user_id)).mention
     except IndexError:
@@ -90,24 +90,24 @@ async def member_ban(client: Client, message: Message):
 @Client.on_message(filters.group & filters.command("unban", cmd) & filters.me)
 async def member_unban(client: Client, message: Message):
     reply = message.reply_to_message
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if reply and reply.sender_chat and reply.sender_chat != message.chat.id:
-        return await Kazu.edit("You cannot unban a channel")
+        return await Xyloid.edit("You cannot unban a channel")
 
     if len(message.command) == 2:
         user = message.text.split(None, 1)[1]
     elif len(message.command) == 1 and reply:
         user = message.reply_to_message.from_user.id
     else:
-        return await Kazu.edit(
+        return await Xyloid.edit(
             "Provide a username or reply to a user's message to unban."
         )
     await message.chat.unban_member(user)
     umention = (await cleint.get_users(user)).mention
-    await Kazu.edit(f"Unbanned! {umention}")
+    await Xyloid.edit(f"Unbanned! {umention}")
 
 
 @Client.on_message(
@@ -117,19 +117,19 @@ async def member_unban(client: Client, message: Message):
 async def pin_message(client: Client, message):
     if not message.reply_to_message:
         return await edit_or_reply(message, "Reply to a message to pin/unpin it.")
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_pin_messages:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     r = message.reply_to_message
     if message.command[0][0] == "u":
         await r.unpin()
-        return await Kazu.edit(
+        return await Xyloid.edit(
             f"**Unpinned [this]({r.link}) message.**",
             disable_web_page_preview=True,
         )
     await r.pin(disable_notification=True)
-    await Kazu.edit(
+    await Xyloid.edit(
         f"**Pinned [this]({r.link}) message.**",
         disable_web_page_preview=True,
     )
@@ -139,18 +139,18 @@ async def pin_message(client: Client, message):
 @Client.on_message(filters.command("mute", cmd) & filters.me)
 async def mute(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Kazu.edit("I can't mute myself.")
+        return await Xyloid.edit("I can't mute myself.")
     if user_id in DEVS:
-        return await Kazu.edit("I can't mute my developer!")
+        return await Xyloid.edit("I can't mute my developer!")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await Kazu.edit("I can't mute an admin, You know the rules, so do i.")
+        return await Xyloid.edit("I can't mute an admin, You know the rules, so do i.")
     mention = (await client.get_users(user_id)).mention
     msg = (
         f"**Muted User:** {mention}\n"
@@ -159,7 +159,7 @@ async def mute(client: Client, message: Message):
     if reason:
         msg += f"**Reason:** {reason}"
     await message.chat.restrict_member(user_id, permissions=ChatPermissions())
-    await Kazu.edit(msg)
+    await Xyloid.edit(msg)
 
 
 @Client.on_message(
@@ -168,12 +168,12 @@ async def mute(client: Client, message: Message):
 @Client.on_message(filters.group & filters.command("unmute", cmd) & filters.me)
 async def unmute(client: Client, message: Message):
     user_id = await extract_user(message)
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     await message.chat.restrict_member(user_id, permissions=unmute_permissions)
     umention = (await client.get_users(user_id)).mention
     await Kazu.edit(f"Unmuted! {umention}")
@@ -185,18 +185,18 @@ async def unmute(client: Client, message: Message):
 @Client.on_message(filters.command(["kick", "dkick"], cmd) & filters.me)
 async def kick_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message)
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_restrict_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Kazu.edit("I can't kick myself.")
+        return await Xyloid.edit("I can't kick myself.")
     if user_id == DEVS:
-        return await Kazu.edit("I can't kick my developer.")
+        return await Xyloid.edit("I can't kick my developer.")
     if user_id in (await list_admins(client, message.chat.id)):
-        return await Kazu.edit("I can't kick an admin, You know the rules, so do i.")
+        return await Xyloid.edit("I can't kick an admin, You know the rules, so do i.")
     mention = (await client.get_users(user_id)).mention
     msg = f"""
 **Kicked User:** {mention}
@@ -207,11 +207,11 @@ async def kick_user(client: Client, message: Message):
         msg += f"\n**Reason:** `{reason}`"
     try:
         await message.chat.ban_member(user_id)
-        await Kazu.edit(msg)
+        await Xyloid.edit(msg)
         await asyncio.sleep(1)
         await message.chat.unban_member(user_id)
     except ChatAdminRequired:
-        return await Kazu.edit("**Maaf Anda Bukan admin**")
+        return await Kazu.edit("**Lo Bukan admin Bego**")
 
 
 @Client.on_message(
@@ -228,10 +228,10 @@ async def promotte(client: Client, message: Message):
     umention = (await client.get_users(user_id)).mention
     Man = await edit_or_reply(message, "`Processing...`")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     bot = (await client.get_chat_member(message.chat.id, client.me.id)).privileges
     if not bot.can_promote_members:
-        return await Kazu.edit("I don't have enough permissions")
+        return await Xyloid.edit("I don't have enough permissions")
     if message.command[0][0] == "f":
         await message.chat.promote_member(
             user_id,
@@ -246,7 +246,7 @@ async def promotte(client: Client, message: Message):
                 can_promote_members=True,
             ),
         )
-        return await Kazu.edit(f"Fully Promoted! {umention}")
+        return await Xyloid.edit(f"Fully Promoted! {umention}")
 
     await message.chat.promote_member(
         user_id,
@@ -261,7 +261,7 @@ async def promotte(client: Client, message: Message):
             can_promote_members=False,
         ),
     )
-    await Kazu.edit(f"Promoted! {umention}")
+    await Xyloid.edit(f"Promoted! {umention}")
 
 
 @Client.on_message(
@@ -273,11 +273,11 @@ async def promotte(client: Client, message: Message):
 @Client.on_message(filters.group & filters.command("demote", cmd) & filters.me)
 async def demote(client: Client, message: Message):
     user_id = await extract_user(message)
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     if not user_id:
-        return await Kazu.edit("I can't find that user.")
+        return await Xyloid.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await Kazu.edit("I can't demote myself.")
+        return await Xyloid.edit("I can't demote myself.")
     await message.chat.promote_member(
         user_id,
         privileges=ChatPrivileges(
@@ -292,7 +292,7 @@ async def demote(client: Client, message: Message):
         ),
     )
     umention = (await client.get_users(user_id)).mention
-    await Kazu.edit(f"Demoted! {umention}")
+    await Xyloid.edit(f"Demoted! {umention}")
 
 
 add_command_help(
