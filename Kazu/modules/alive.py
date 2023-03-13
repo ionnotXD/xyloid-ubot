@@ -39,23 +39,19 @@ emoji = gvarstatus("ALIVE_EMOJI") or "『★』"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "✨ᴘʀᴇᴍɪᴜᴍ✨"
 
 
-@Client.on_message(filters.command(["alive", "awake"], cmd) & filters.me)
+@Client.on_message(filters.command(["alive", "xyloid"], "") & filters.me)
 async def alive(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "🤖")
+    Kazu = await edit_or_reply(message, "🤟🏻")
     await asyncio.sleep(2)
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**༺ [𝙿𝚈𝚁𝙾𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃](https://github.com/ionmusic/PyroZu-Userbot) ༻**\n\n"
-        f"<b>{alive_text}</b>\n\n"
-        f"{emoji} <b>Mᴀsᴛᴇʀ :</b> {client.me.mention} \n"
-        f"{emoji} <b>Mᴏᴅᴜʟᴇs :</b> <code>{len(modules)} Modules</code> \n"
-        f"{emoji} <b>Bᴏᴛ Vᴇʀsɪᴏɴ:</b> <code>{BOT_VER}</code> \n"
-        f"{emoji} <b>Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
-        f"{emoji} <b>Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
-        f"{emoji} <b>Bᴏᴛ Uᴘᴛɪᴍᴇ :</b> <code>{uptime}</code> \n\n"
-        f"    **『 [𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/{GROUP})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/{CHANNEL})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={client.me.id}) 』**"
-    )
+        f"**xyloidUserbot**\n"
+        f"  <b>Status : </b>**𝘗𝘙𝘌𝘔𝘐𝘜𝘔**\n"
+        f"   <b>Master :</b> {client.me.mention} \n"
+        f"   <b>Modules :</b> <code>{len(modules)} Modules</code> \n"
+        f"   <b>Bot Version :</b> <code>{BOT_VER}</code> \n"
+        f"   <b>Bot Uptime :</b> <code>{uptime}</code>\n")
     try:
         await asyncio.gather(
             Kazu.delete(),
