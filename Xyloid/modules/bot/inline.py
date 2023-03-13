@@ -21,10 +21,10 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from Kazu.helpers.data import Data
-from Kazu.helpers.inline import inline_wrapper, paginate_help
+from Xyloid.helpers.data import Data
+from Xyloid.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER, BRANCH as branch
-from Kazu import CMD_HELP, StartTime, app
+from Xyloid import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
 
@@ -96,7 +96,7 @@ async def pingme(client: Client, message: Message):
 
 async def karman_function(message: Message, answers):
     msg = (
-        f"𝙿𝚈𝚁𝙾𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 \n"
+        f"𝚇𝚈𝙻𝙾𝙸𝙳-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 \n"
         "ㅤㅤsᴛᴀᴛᴜs : ᴘʀᴇᴍɪᴜᴍ ᴀᴋᴛɪғ \n"
         f"ㅤㅤㅤㅤᴍᴏᴅᴜʟᴇs:</b> <code>{len(modules)} Modules</code> \n"
         f"ㅤㅤㅤㅤʙᴏᴛ ᴠᴇʀsɪᴏɴ: {BOT_VER} \n"
@@ -111,7 +111,7 @@ async def karman_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="✨sᴜᴘᴘᴏʀᴛ✨", url="t.me/kazusupportgrp"), InlineKeyboardButton(text="✨ᴏᴡɴᴇʀ✨", url="t.me/kenapatagkazu")], [InlineKeyboardButton(text="✨ᴍᴇɴᴜ✨", callback_data="reopen")]]
+                [[InlineKeyboardButton(text="✨sᴜᴘᴘᴏʀᴛ✨", url="t.me/xyloidsupport"), InlineKeyboardButton(text="✨ᴏᴡɴᴇʀ✨", url="t.me/xyloidd")], [InlineKeyboardButton(text="✨ᴍᴇɴᴜ✨", callback_data="reopen")]]
             ),
         )
     )
