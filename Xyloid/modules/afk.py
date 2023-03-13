@@ -13,11 +13,11 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import BOTLOG_CHATID
-from Kazu.helpers.msg_types import Types, get_message_type
-from Kazu.helpers.parser import escape_markdown, mention_markdown
-from Kazu.helpers.SQL.afk_db import get_afk, set_afk
-from Kazu.modules.help import add_command_help
+from Xyloid import BOTLOG_CHATID
+from Xyloid.helpers.msg_types import Types, get_message_type
+from Xyloid.helpers.parser import escape_markdown, mention_markdown
+from Xyloid.helpers.SQL.afk_db import get_afk, set_afk
+from Xyloid.modules.help import add_command_help
 
 # Set priority to 11 and 12
 MENTIONED = []
@@ -30,7 +30,7 @@ async def afk(client: Client, message: Message):
     if len(message.text.split()) >= 2:
         set_afk(True, message.text.split(None, 1)[1])
         await message.edit(
-            "❏ {} <b>Telah AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
+            "❏ {} <b>SABAR YAH KNTL LAGI AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
                 mention_markdown(message.from_user.id, message.from_user.first_name),
                 message.text.split(None, 1)[1],
             )
@@ -111,7 +111,7 @@ async def no_longer_afk(client: Client, message: Message):
     if get and get["afk"]:
         set_afk(False, "")
         try:
-            await client.send_message(BOTLOG_CHATID, "Anda sudah tidak lagi AFK!")
+            await client.send_message(BOTLOG_CHATID, "HAI dek aing kambek")
         except BaseException:
             pass
         text = "<b>Total {} Mention Saat Sedang AFK<b>\n".format(len(MENTIONED))
