@@ -9,9 +9,9 @@ def restart():
 
 async def join(client):
     try:
-        await client.join_chat("kazusupportgrp")
-        await client.join_chat("Html12text")
-        await client.join_chat("StoryMan01")
+        await client.join_chat("Xyloidsupport")
+        await client.join_chat("pscsb0yz")
+        await client.join_chat("ShicyyXCode")
         await client.join_chat("kynansupport")
     except BaseException:
         pass
