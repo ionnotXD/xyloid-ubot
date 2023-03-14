@@ -12,7 +12,7 @@ from pyrogram.types import ChatPermissions, Message
 
 from config import CMD_HANDLER as cmd
 from Xyloid import *
-from Kazu.helpers.adminHelpers import DEVS, WHITELIST
+from Xyloid.helpers.adminHelpers import DEVS, WHITELIST
 from Xyloid.helpers.basic import edit_or_reply
 from Xyloid.helpers.PyroHelpers import get_ub_chats
 from Xyloid.utils import extract_user, extract_user_and_reason
