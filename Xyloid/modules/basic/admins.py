@@ -16,7 +16,7 @@ from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 from config import CMD_HANDLER as cmd
 from Xyloid.helpers.adminHelpers import DEVS
 from Xyloid.helpers.basic import edit_or_reply
-from Xyloid.modules.help import add_command_help
+from .help import add_command_help
 from Xyloid.utils.misc import extract_user, extract_user_and_reason, list_admins
 
 unmute_permissions = ChatPermissions(
