@@ -15,7 +15,7 @@ from .help import add_command_help
 async def asupan_cmd(client: Client, message: Message):
     Xyloid = await edit_or_reply(message, "Tunggu Sebentar Yah Ajg Asupan Lo Lagi Load...")
     await gather(
-        Xyloid delete(),
+        Xyloid.delete(),
         client.send_video(
             message.chat.id,
             choice(
