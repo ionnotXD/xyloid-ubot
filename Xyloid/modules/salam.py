@@ -13,8 +13,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
 
 from .help import add_command_help
 
@@ -25,7 +25,7 @@ async def salamone(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "Assalamualaikum",
+            "Assalamualaikum Anak Dajjal",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -49,7 +49,7 @@ async def jwbsalam(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "Wa'alaikumsalam",
+            "Wa'alaikumsalam Kaum Ateis",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -69,7 +69,7 @@ async def jwbsalamlngkp(client: Client, message: Message):
 
 @Client.on_message(filters.command("a", cmd) & filters.me)
 async def salken(client: Client, message: Message):
-    xx = await edit_or_reply(message, f"**Haii Salken Saya {client.me.first_name}**")
+    xx = await edit_or_reply(message, f"**Haii Kontol Salken Aing {client.me.first_name}**")
     await asyncio.sleep(2)
     await xx.edit("Assalamualaikum")
 
