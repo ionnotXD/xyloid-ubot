@@ -14,8 +14,8 @@ from pyrogram.enums import ChatType, UserStatus
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import BOTLOG_CHATID
-from Kazu.helpers.basic import edit_or_reply
+from Xyloid import BOTLOG_CHATID
+from Xyloid.helpers.basic import edit_or_reply
 
 from .help import *
 
@@ -38,12 +38,12 @@ async def inviteee(client: Client, message: Message):
 
 @Client.on_message(filters.command(["inviteall"], cmd) & filters.me)
 async def inv(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Processing . . .`")
+    Xyloid = await edit_or_reply(message, "`Processing . . .`")
     text = message.text.split(" ", 1)
     queryy = text[1]
     chat = await client.get_chat(queryy)
     tgchat = message.chat
-    await Kazu.edit_text(f"inviting users from {chat.username}")
+    await Xyloid.edit_text(f"inviting users from {chat.username}")
     async for member in client.get_chat_members(chat.id):
         user = member.user
         zxb = [
@@ -63,14 +63,14 @@ async def inv(client: Client, message: Message):
 
 @Client.on_message(filters.command("invitelink", cmd) & filters.me)
 async def invite_link(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
         message.chat.title
         try:
             link = await client.export_chat_invite_link(message.chat.id)
-            await Kazu.edit(f"**Link Invite:** {link}")
+            await Xyloid.edit(f"**Link Invite:** {link}")
         except Exception:
-            await Kazu.edit("Denied permission")
+            await Xyloid.edit("Denied permission")
 
 
 add_command_help(
