@@ -12,8 +12,8 @@
 ```console
  $ sudo apt-get update -y
  $ sudo apt-get upgrade
- $ git clone https://github.com/ionmusic/PyroZu-Userbot
- $ cd PyroZu-Userbot
+ $ git clone https://https://github.com/axallll/xyloid-ubot.git
+ $ cd Xyloid-Userbot
  $ python3 -m venv venv
  $ source venv/bin/act*
  $ pip3 install -U-r req*
@@ -25,8 +25,8 @@
 </h3>
 
 ```console
- $ screen -S Kazu
- $ python3 -m Kazu
+ $ screen -S xyloid
+ $ python3 -m xyloid
 ```
 
 ## Heroku Deploy!
@@ -51,5 +51,5 @@
 
 <p align="center">𝐒𝐮𝐩𝐩𝐨𝐫𝐭 / 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ----> </p>
 
-<p align="center"><a href="https://t.me/Html12text"><img src="https://img.shields.io/badge/ᴛᴇʟᴇɢʀᴀᴍ-Channel-black?&style=for-the-badge&logo=telegram" width="220" height="38.45"></a></p>
-<p align="center"><a href="https://t.me/kazusupportgrp"><img src="https://img.shields.io/badge/ᴛᴇʟᴇɢʀᴀᴍ-𝐒𝐮𝐩𝐩𝐨𝐫𝐭-black?&style=for-the-badge&logo=telegram" width="220" height="38.45"></a></p>
+<p align="center"><a href="https://t.me/pscsb0yz"><img src="https://img.shields.io/badge/ᴛᴇʟᴇɢʀᴀᴍ-Channel-black?&style=for-the-badge&logo=telegram" width="220" height="38.45"></a></p>
+<p align="center"><a href="https://t.me/xyloidsupport"><img src="https://img.shields.io/badge/ᴛᴇʟᴇɢʀᴀᴍ-𝐒𝐮𝐩𝐩𝐨𝐫𝐭-black?&style=for-the-badge&logo=telegram" width="220" height="38.45"></a></p>
