@@ -5,12 +5,12 @@ import dotenv
 import heroku3
 import requests
 import urllib3
-from Kazu.utils.misc import *
+from Xyloid.utils.misc import *
 from pyrogram import Client, filters
 
 from config import HEROKU_API_KEY, HEROKU_APP_NAME
 from config import CMD_HNDLR as cmds
-from Kazu import SUDO_USER, Client
+from Xyloid import SUDO_USER, Client
 
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
