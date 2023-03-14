@@ -24,14 +24,14 @@ from pyrogram.raw import functions
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
-from Kazu import CMD_HELP, StartTime
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.constants import WWW
-from Kazu import app 
-from Kazu.helpers.PyroHelpers import SpeedConvert
-from Kazu.utils.tools import get_readable_time
-from Kazu.modules.bot.inline import get_readable_time
-from Kazu.helpers.adminHelpers import DEVS
+from Xyloid import CMD_HELP, StartTime
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.constants import WWW
+from Xyloid import app 
+from Xyloid.helpers.PyroHelpers import SpeedConvert
+from Xyloid.utils.tools import get_readable_time
+from Xyloid.modules.bot.inline import get_readable_time
+from Xyloid.helpers.adminHelpers import DEVS
 
 from .help import add_command_help
 
