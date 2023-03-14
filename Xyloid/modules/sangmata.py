@@ -15,8 +15,8 @@ from pyrogram.errors import YouBlockedUser
 from pyrogram.types import *
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.utils import extract_user
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.utils import extract_user
 
 from .help import add_command_help
 
@@ -40,7 +40,7 @@ async def sg(client: Client, message: Message):
 
     async for stalk in client.search_messages(bot, query="Name", limit=1):
         if not stalk:
-            await message.edit_text("**Orang Ini Belum Pernah Mengganti Namanya**")
+            await message.edit_text("**Jamet Ini Belum Pernah Mengganti Namanya**")
             return
         elif stalk:
             await message.edit(stalk.text)
