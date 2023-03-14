@@ -1,6 +1,6 @@
-<img src="https://telegra.ph//file/64202f501f38a39b1a8ca.jpg">
+<img src="https://.https://telegraph/file/040ccc557060b69dc4473.jpg ">
 
-<p align="center"> 🔥 PyroZu-Userbot 🔥 </p>
+<p align="center"> 🔥 Xyloid-Userbot 🔥 </p>
 
 - CLONING Geez Pyro & PyroKar-Userbot
 
