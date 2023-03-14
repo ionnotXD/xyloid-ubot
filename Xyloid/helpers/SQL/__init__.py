@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from Kazu import DB_URL, LOGGER
+from Xyloid import DB_URL, LOGGER
 
 SPAMBOT = "SPAMBOT"
 
