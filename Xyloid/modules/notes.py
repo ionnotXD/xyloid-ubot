@@ -2,10 +2,10 @@ from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from Kazu.helpers import *
-from Kazu.helpers.SQL.notes_sql import *
-from Kazu.utils import *
-from Kazu import *
+from Xyloid.helpers import *
+from Xyloid.helpers.SQL.notes_sql import *
+from Xyloid.utils import *
+from Xyloid import *
 from .help import add_command_help
 
 cmd = [",", ".", "?", "*", "!" "$",]
