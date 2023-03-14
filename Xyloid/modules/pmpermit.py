@@ -13,11 +13,11 @@ from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
 
 from config import CMD_HANDLER as cmd
-from Kazu import TEMP_SETTINGS
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.SQL.globals import addgvar, gvarstatus
-from Kazu.helpers.tools import get_arg
+from Xyloid import TEMP_SETTINGS
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.SQL.globals import addgvar, gvarstatus
+from Xyloid.helpers.tools import get_arg
 
 from .help import add_command_help
 
@@ -29,7 +29,7 @@ DEF_UNAPPROVED_MSG = (
     "• Tunggu sampai saya menyetujui PM anda.\n"
     "• Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "┏▼━━━━━━━━━━━━━━━━━━━▼┓\n"
-    "       𝙿𝙴𝚂𝙰𝙽 𝙾𝚃𝙾𝙼𝙰𝚃𝙸𝚂 𝙱𝚈 : 𝙿𝚈𝚁𝙾𝚉𝚄\n"
+    "       𝙿𝙴𝚂𝙰𝙽 𝙾𝚃𝙾𝙼𝙰𝚃𝙸𝚂 𝙱𝚈 : 𝚇𝚈𝙻𝙾𝙸𝙳\n"
     "┗▲━━━━━━━━━━━━━━━━━━━▲┛\n"
 )
 
@@ -39,8 +39,8 @@ DEF_UNAPPROVED_MSG = (
 )
 async def incomingpm(client: Client, message: Message):
     try:
-        from Kazu.helpers.SQL.globals import gvarstatus
-        from Kazu.helpers.SQL.pm_permit_sql import is_approved
+        from Xyloid.helpers.SQL.globals import gvarstatus
+        from Xyloid.helpers.SQL.pm_permit_sql import is_approved
     except BaseException:
         pass
 
@@ -96,7 +96,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from Kazu.helpers.SQL.pm_permit_sql import approve, is_approved
+        from Xyloid.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -105,7 +105,7 @@ async def auto_accept(client, message):
             approve(message.chat.id)
             await client.send_message(
                 message.chat.id,
-                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer PyroZu-Userbot</b>",
+                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer Xyloid-Userbot</b>",
                 parse_mode=enums.ParseMode.HTML,
             )
         except IntegrityError:
@@ -143,7 +143,7 @@ async def auto_accept(client, message):
 )
 async def approvepm(client: Client, message: Message):
     try:
-        from Kazu.helpers.SQL.pm_permit_sql import approve
+        from Xyloid.helpers.SQL.pm_permit_sql import approve
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
@@ -182,7 +182,7 @@ async def approvepm(client: Client, message: Message):
 )
 async def disapprovepm(client: Client, message: Message):
     try:
-        from Kazu.helpers.SQL.pm_permit_sql import dissprove
+        from Xyloid.helpers.SQL.pm_permit_sql import dissprove
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
@@ -234,11 +234,11 @@ async def setpm_limit(client: Client, cust_msg: Message):
     )
     if not input_str:
         return await cust_msg.edit("**Harap masukan angka untuk PM_LIMIT.**")
-    Kazu = await cust_msg.edit("`Processing...`")
+    Xyloid = await cust_msg.edit("`Processing...`")
     if input_str and not input_str.isnumeric():
-        return await Kazu.edit("**Harap masukan angka untuk PM_LIMIT.**")
+        return await Xyloid.edit("**Harap masukan angka untuk PM_LIMIT.**")
     addgvar("PM_LIMIT", input_str)
-    await Kazu.edit(f"**Set PM limit to** `{input_str}`")
+    await Xyloid.edit(f"**Set PM limit to** `{input_str}`")
 
 
 @Client.on_message(filters.command(["pmpermit", "pmguard"], cmd) & filters.me)
@@ -277,16 +277,16 @@ async def setpmpermit(client: Client, cust_msg: Message):
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Kazu = await cust_msg.edit("`Processing...`")
+    Xyloid = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     message = cust_msg.reply_to_message
     if custom_message is not None:
         sql.delgvar("unapproved_msg")
     if not message:
-        return await Kazu.edit("**Mohon Reply Ke Pesan**")
+        return await Xyloid.edit("**Mohon Reply Ke Pesan**")
     msg = message.text
     sql.addgvar("unapproved_msg", msg)
-    await Kazu.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
+    await Xyloid.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
 
 
 @Client.on_message(filters.command("getpmpermit", cmd) & filters.me)
@@ -296,16 +296,16 @@ async def get_pmermit(client: Client, cust_msg: Message):
             "**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `.setvar PM_AUTO_BAN True`"
         )
     try:
-        import Kazu.helpers.SQL.globals as sql
+        import Xyloid.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Kazu = await cust_msg.edit("`Processing...`")
+    Xyloid = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
     if custom_message is not None:
-        await Kazu.edit("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
+        await Xyloid.edit("**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}")
     else:
-        await Kazu.edit(
+        await Xyloid.edit(
             "**Anda Belum Menyetel Pesan Costum PMPERMIT,**\n"
             f"**Masih Menggunakan Pesan PM Default:**\n\n{DEF_UNAPPROVED_MSG}"
         )
@@ -318,18 +318,18 @@ async def reset_pmpermit(client: Client, cust_msg: Message):
             f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
         )
     try:
-        import Kazu.helpers.SQL.globals as sql
+        import Xyloid.helpers.SQL.globals as sql
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
-    Kazu = await cust_msg.edit("`Processing...`")
+    Xyloid = await cust_msg.edit("`Processing...`")
     custom_message = sql.gvarstatus("unapproved_msg")
 
     if custom_message is None:
-        await Kazu.edit("**Pesan PMPERMIT Anda Sudah Default**")
+        await Xyloid.edit("**Pesan PMPERMIT Anda Sudah Default**")
     else:
         sql.delgvar("unapproved_msg")
-        await Kazu.edit("**Berhasil Mengubah Pesan Custom PMPERMIT menjadi Default**")
+        await Xyloid.edit("**Berhasil Mengubah Pesan Custom PMPERMIT menjadi Default**")
 
 
 add_command_help(
