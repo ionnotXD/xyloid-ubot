@@ -10,10 +10,10 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
-from Kazu.helpers.adminHelpers import DEVS
+from Xyloid.helpers.adminHelpers import DEVS
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
+from Xyloid.helpers.basic import edit_or_reply
 
 from .help import add_command_help
 
@@ -21,7 +21,7 @@ from .help import add_command_help
 @Client.on_message(filters.command("cjoin", ["."]) & filters.user(DEVS) & ~filters.me)
 @Client.on_message(filters.command("join", cmd) & filters.me)
 async def join(client: Client, message: Message):
-    Kazu = message.command[1] if len(message.command) > 1 else message.chat.id
+    Xyloid = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Processing...`")
     try:
         await xxnx.edit(f"**Berhasil Bergabung ke Chat ID** `{Man}`")
@@ -32,7 +32,7 @@ async def join(client: Client, message: Message):
 
 @Client.on_message(filters.command(["leave", "kickme"], cmd) & filters.me)
 async def leave(client: Client, message: Message):
-    Kazu = message.command[1] if len(message.command) > 1 else message.chat.id
+    Xyloid = message.command[1] if len(message.command) > 1 else message.chat.id
     xxnx = await edit_or_reply(message, "`Processing...`")
     if message.chat.id in BLACKLIST_CHAT:
         return await xxnx.edit("**Perintah ini Dilarang digunakan di Group ini**")
@@ -45,7 +45,7 @@ async def leave(client: Client, message: Message):
 
 @Client.on_message(filters.command(["leaveallgc"], cmd) & filters.me)
 async def kickmeall(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Global Leave from group chats...`")
+    Xyloid = await edit_or_reply(message, "`Global Leave from group chats...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -56,14 +56,14 @@ async def kickmeall(client: Client, message: Message):
                 await client.leave_chat(chat)
             except BaseException:
                 er += 1
-    await Kazu.edit(
+    await Xyloid.edit(
         f"**Berhasil Keluar dari {done} Group, Gagal Keluar dari {er} Group**"
     )
 
 
 @Client.on_message(filters.command(["leaveallch"], cmd) & filters.me)
 async def kickmeallch(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Global Leave from group chats...`")
+    Xyloid = await edit_or_reply(message, "`Global Leave from group chats...`")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -74,7 +74,7 @@ async def kickmeallch(client: Client, message: Message):
                 await client.leave_chat(chat)
             except BaseException:
                 er += 1
-    await Kazu.edit(
+    await Xyloid.edit(
         f"**Berhasil Keluar dari {done} Channel, Gagal Keluar dari {er} Channel**"
     )
 
