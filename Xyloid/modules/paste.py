@@ -15,8 +15,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.utils.pastebin import paste
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.utils.pastebin import paste
 
 from .help import add_command_help
 
