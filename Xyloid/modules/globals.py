@@ -11,11 +11,11 @@ from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import *
+from Xyloid import *
 from Kazu.helpers.adminHelpers import DEVS, WHITELIST
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import get_ub_chats
-from Kazu.utils import extract_user, extract_user_and_reason
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import get_ub_chats
+from Xyloid.utils import extract_user, extract_user_and_reason
 
 from .help import add_command_help
 
@@ -25,8 +25,8 @@ def globals_init():
         global sql, sql2
         from importlib import import_module
 
-        sql = import_module("Kazu.helpers.SQL.gban_sql")
-        sql2 = import_module("Kazu.helpers.SQL.gmute_sql")
+        sql = import_module("Xyloid.helpers.SQL.gban_sql")
+        sql2 = import_module("Xyloid.helpers.SQL.gmute_sql")
     except Exception as e:
         sql = None
         sql2 = None
@@ -44,32 +44,32 @@ globals_init()
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
-        Kazu = await message.reply("`Gbanning...`")
+        Xyloid = await message.reply("`Gbanning...`")
     else:
-        Kazu = await message.edit("`Gbanning....`")
+        Xyloid = await message.edit("`Gbanning....`")
     if not user_id:
-        return await Kazu.edit("Saya tidak dapat menemukan pengguna itu.")
+        return await Xyloid.edit("Saya tidak dapat menemukan pengguna itu.")
     if user_id == client.me.id:
-        return await Kazu.edit("**Ngapain NgeGban Diri Sendiri Pepek**")
+        return await Xyloid.edit("**Ngapain NgeGban Diri Sendiri Pepek**")
     if user_id in DEVS:
         return await Kazu.edit("**Gak Bisa Di Gban Kontol karena dia Yang Buat Aku 🗿**")
     if user_id in WHITELIST:
-        return await Kazu.edit(
+        return await Xyloid.edit(
             "**Kau Gak Bisa Kontol Gban Dia Karena Dia Adalah admin @Karc0de 😡**"
         )
     if user_id:
         try:
             user = await client.get_users(user_id)
         except Exception:
-            return await Kazu.edit("`Harap tentukan pengguna yang valid!`")
+            return await Xyloid.edit("`Harap tentukan pengguna yang valid!`")
 
     if sql.is_gbanned(user.id):
-        return await Kazu.edit(
+        return await Xyloid.edit(
             f"[Jamet](tg://user?id={user.id}) **ini sudah ada di daftar gbanned**"
         )
     f_chats = await get_ub_chats(client)
     if not f_chats:
-        return await Kazu.edit("**Anda tidak mempunyai GC yang anda admin 🥺**")
+        return await Xyloid.edit("**Makanya terkenal goblog biar bisa admin di gc mana aja 🥺**")
     er = 0
     done = 0
     for gokid in f_chats:
@@ -87,7 +87,7 @@ async def gban_user(client: Client, message: Message):
     if reason:
         msg += f"\n**Reason:** `{reason}`"
     msg += f"\n**Affected To:** `{done}` **Chats**"
-    await Kazu.edit(msg)
+    await Xyloid.edit(msg)
 
 
 @Client.on_message(
@@ -97,23 +97,23 @@ async def gban_user(client: Client, message: Message):
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
-        Kazu = await message.reply("`UnGbanning...`")
+        Xyloid = await message.reply("`UnGbanning...`")
     else:
-        Kazu = await message.edit("`UnGbanning....`")
+        Xyloid = await message.edit("`UnGbanning....`")
     if not user_id:
-        return await Kazu.edit("Saya tidak dapat menemukan pengguna itu.")
+        return await Xyloid.edit("Saya tidak dapat menemukan pengguna itu.")
     if user_id:
         try:
             user = await client.get_users(user_id)
         except Exception:
-            return await Kazu.edit("`Harap tentukan pengguna yang valid!`")
+            return await Xyloid.edit("`Harap tentukan pengguna yang valid!`")
 
     try:
         if not sql.is_gbanned(user.id):
-            return await Kazu.edit("`User already ungban`")
+            return await Xyloid.edit("`User already ungban`")
         ung_chats = await get_ub_chats(client)
         if not ung_chats:
-            return await Kazu.edit("**Anda tidak mempunyai GC yang anda admin 🥺**")
+            return await Xyloid.edit("**Makanya terkenal goblog biar bisa admin di gc lain🥺**")
         er = 0
         done = 0
         for good_boi in ung_chats:
@@ -131,16 +131,16 @@ async def ungban_user(client: Client, message: Message):
         if reason:
             msg += f"\n**Reason:** `{reason}`"
         msg += f"\n**Affected To:** `{done}` **Chats**"
-        await Kazu.edit(msg)
+        await Xyloid.edit(msg)
     except Exception as e:
-        await Kazu.edit(f"**ERROR:** `{e}`")
+        await Xyloid.edit(f"**ERROR:** `{e}`")
         return
 
 
 @Client.on_message(filters.command("listgban", cmd) & filters.me)
 async def gbanlist(client: Client, message: Message):
     users = sql.gbanned_users()
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     if not users:
         return await Kazu.edit("Belum Ada Jamet yang Di-Gban")
     gban_list = "**GBanned Users:**\n"
