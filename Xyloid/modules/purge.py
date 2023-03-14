@@ -13,8 +13,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
 
 from .help import add_command_help
 
@@ -41,12 +41,12 @@ async def del_msg(client: Client, message: Message):
 )
 @Client.on_message(filters.command("purge", cmd) & filters.me)
 async def purge(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Starting To Purge Messages!`")
+    Xyloid = await edit_or_reply(message, "`Starting To Purge Messages!`")
     msg = message.reply_to_message
     if msg:
         itermsg = list(range(msg.id, message.id))
     else:
-        await Kazu.edit("`Reply To Message To Purge!`")
+        await Xyloid.edit("`Reply To Message To Purge!`")
         return
     count = 0
 
@@ -59,10 +59,10 @@ async def purge(client: Client, message: Message):
         except FloodWait as e:
             await asyncio.sleep(e.x)
         except Exception as e:
-            await Kazu.edit(f"**ERROR:** `{e}`")
+            await Xyloid.edit(f"**ERROR:** `{e}`")
             return
 
-    done = await Kazu.edit(
+    done = await Xyloid.edit(
         f"**Fast Purge Completed!**\n**Berhasil Menghapus** `{str(count)}` **Pesan.**"
     )
     await asyncio.sleep(2)
