@@ -17,12 +17,12 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
-from Kazu import CMD_HELP, StartTime, app
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.constants import WWW
-from Kazu.helpers.PyroHelpers import SpeedConvert
-from Kazu.utils.tools import get_readable_time
-from Kazu.helpers.adminHelpers import DEVS
+from Xyiloid import CMD_HELP, StartTime, app
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.constants import WWW
+from Xyloid.helpers.PyroHelpers import SpeedConvert
+from Xyloid.utils.tools import get_readable_time
+from Xyloid.helpers.adminHelpers import DEVS
 
 from .help import add_command_help
 
@@ -78,7 +78,7 @@ async def pingme(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"❏ **Pʏʀᴏᴢᴜ-Usᴇʀʙᴏᴛ ✨**\n"
+        f"❏ **xʏʟᴏɪᴅ-Usᴇʀʙᴏᴛ ✨**\n"
         f"├• **Pɪɴɢᴇʀ** - `%sms`\n"
         f"├• **Uᴘᴛɪᴍᴇ -** `{uptime}` \n"
         f"└• **Oᴡɴᴇʀ :** {client.me.mention}" % (duration)
@@ -97,7 +97,7 @@ async def kping(client: Client, message: Message):
     await xx.edit("⚡⚡")
     await xx.edit("⚡⚡⚡")
     await xx.edit("⚡⚡⚡⚡✨")
-    await xx.edit("Awas awas awas babunya Kazu mau lewat😎")
+    await xx.edit("Awas awas awas babunya Xyloid mau lewat😎")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await xx.edit(
