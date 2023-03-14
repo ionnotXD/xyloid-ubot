@@ -17,7 +17,7 @@ from Xyloid import BOTLOG_CHATID
 from Xyloid.helpers.msg_types import Types, get_message_type
 from Xyloid.helpers.parser import escape_markdown, mention_markdown
 from.help import *
-from Xyloid.modules.help import add_command_help
+from.help import *
 
 # Set priority to 11 and 12
 MENTIONED = []
