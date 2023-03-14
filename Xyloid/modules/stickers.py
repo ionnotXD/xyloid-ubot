@@ -23,10 +23,10 @@ from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
-from Kazu.helpers.tools import get_arg, get_text, resize_media
-from Kazu.utils.tools import add_text_img, bash
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.tools import get_arg, get_text, resize_media
+from Xyloid.utils.tools import add_text_img, bash
 
 from .help import add_command_help
 
@@ -35,7 +35,7 @@ from .help import add_command_help
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
-    Kazu = await edit_or_reply(message, "`Boleh juga ni stickernya colong ahh...`")
+    Xyloid = await edit_or_reply(message, "Sticker nya bole juga maling ahh...")
     media_ = None
     emoji_ = None
     is_anim = False
@@ -65,7 +65,7 @@ async def kang(client: Client, message: Message):
             ff_vid = True
         elif replied.sticker:
             if not replied.sticker.file_name:
-                await Kazu.edit("**Stiker tidak memiliki Nama!**")
+                await Xyloid.edit("**Stiker tidak memiliki Nama!**")
                 return
             emoji_ = replied.sticker.emoji
             is_anim = replied.sticker.is_animated
@@ -77,11 +77,11 @@ async def kang(client: Client, message: Message):
                 resize = True
                 ff_vid = True
         else:
-            await Kazu.edit("**File Tidak Didukung**")
+            await Xyloid.edit("**File Tidak Didukung**")
             return
         media_ = await client.download_media(replied, file_name="Kazu/resources/")
     else:
-        await Kazu.edit("**Silahkan Reply ke Media Foto/GIF/Sticker!**")
+        await Xyloid.edit("**Silahkan Reply ke Media Foto/GIF/Sticker!**")
         return
     if media_:
         args = get_arg(message)
@@ -166,7 +166,7 @@ async def kang(client: Client, message: Message):
                 if is_video:
                     packname += "_video"
                     packnick += " (Video)"
-                await Kazu.edit(
+                await Xyloid.edit(
                     "`Membuat Sticker Pack Baru "
                     + str(pack)
                     + " Karena Sticker Pack Sudah Penuh`"
@@ -203,7 +203,7 @@ async def kang(client: Client, message: Message):
                 await get_response(message, client)
                 == "Sorry, the file type is invalid."
             ):
-                await Kazu.edit(
+                await Xyloid.edit(
                     "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
                 )
                 return
@@ -211,7 +211,7 @@ async def kang(client: Client, message: Message):
             await asyncio.sleep(2)
             await client.send_message("Stickers", "/done")
         else:
-            await Kazu.edit("`Membuat Sticker Pack Baru`")
+            await Xyloid.edit("`Membuat Sticker Pack Baru`")
             try:
                 await client.send_message("Stickers", cmd)
             except YouBlockedUser:
@@ -226,7 +226,7 @@ async def kang(client: Client, message: Message):
                 await get_response(message, client)
                 == "Sorry, the file type is invalid."
             ):
-                await Kazu.edit(
+                await Xyloid.edit(
                     "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
                 )
                 return
@@ -298,7 +298,7 @@ async def cb_sticker(client: Client, message: Message):
     soup = bs(text, "lxml")
     results = soup.find_all("div", {"class": "sticker-pack__header"})
     if not results:
-        return await xx.edit("**Tidak Dapat Menemukan Sticker Pack 🥺**")
+        return await xx.edit("**Pack sticker nya belom lo bikin tolol**")
     reply = f"**Keyword Sticker Pack:**\n {query}\n\n**Hasil:**\n"
     for pack in results:
         if pack.button:
@@ -313,17 +313,17 @@ async def tinying(client: Client, message: Message):
     reply = message.reply_to_message
     if not (reply and (reply.media)):
         return await edit_or_reply(message, "**Silahkan Balas Ke Pesan Sticker!**")
-    Kazu = await edit_or_reply(message, "`Processing . . .`")
+    Xyloid = await edit_or_reply(message, "`Processing . . .`")
     ik = await client.download_media(reply)
     im1 = Image.open("Kazu/resources/blank.png")
     if ik.endswith(".tgs"):
-        await client.download_media(reply, "kazu.tgs")
+        await client.download_media(reply, "Xyloid.tgs")
         await bash("lottie_convert.py kazu.tgs json.json")
         json = open("json.json", "r")
         jsn = json.read()
         jsn = jsn.replace("512", "2000")
         ("json.json", "w").write(jsn)
-        await bash("lottie_convert.py json.json kazu.tgs")
+        await bash("lottie_convert.py json.json Xyloid.tgs")
         file = "kazu.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".mp4")):
@@ -374,7 +374,7 @@ async def tinying(client: Client, message: Message):
         file = "o.webp"
         os.remove("k.png")
     await asyncio.gather(
-        Kazu.delete(),
+        Xyloid.delete(),
         client.send_sticker(
             message.chat.id,
             sticker=file,
@@ -395,13 +395,13 @@ async def memify(client: Client, message: Message):
         await edit_or_reply(message, "**Harap Balas ke foto atau sticker!**")
         return
     file = await client.download_media(reply_message)
-    Kazu = await edit_or_reply(message, "`Processing . . .`")
+    Xyloid = await edit_or_reply(message, "`Processing . . .`")
     text = get_arg(message)
     if len(text) < 1:
         return await msg.edit(f"Harap Ketik `{cmd}mmf text`")
     meme = await add_text_img(file, text)
     await asyncio.gather(
-        Kazu.delete(),
+        Xyloid.delete(),
         client.send_sticker(
             message.chat.id,
             sticker=meme,
