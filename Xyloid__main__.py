@@ -3,14 +3,14 @@ from pyrogram import idle
 from uvloop import install
 
 
-from Kazu.modules import ALL_MODULES
-from Kazu import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
-from Kazu.modules.basic import join
+from Xyloid.modules import ALL_MODULES
+from Xyloid import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
+from Xyloid.modules.basic import join
 
 BOT_VER = "2.0.0"
 CMD_HANDLER = ["." "," "?" "!"]
 MSG_ON = """
-💢 **𝙿𝚈𝚁𝙾𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙰𝙺𝚃𝙸𝙵** 💢
+💢 **𝚇𝚈𝙻𝙾𝙸𝙳-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙰𝙺𝚃𝙸𝙵** 💢
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 ❍▹ **Usᴇʀʙᴏᴛ Vᴇʀsɪᴏɴ -** `{}`
 ❍▹ **Kᴇᴛɪᴋ** `{}alive` **Uɴᴛᴜᴋ Mᴇɴɢᴇᴄᴇᴋ Bᴏᴛ**
@@ -22,7 +22,7 @@ async def main():
     await app.start()
     print("LOG: Founded Bot token Booting..")
     for all_module in ALL_MODULES:
-        importlib.import_module("Kazu.modules" + all_module)
+        importlib.import_module("Xyloid.modules" + all_module)
         print(f"Successfully Imported {all_module} ")
     for bot in bots:
         try:
@@ -42,6 +42,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("Kazu").info("PyroZu-Userbot Telah Aktif")
+    LOGGER("Kazu").info("Xyloid-Userbot Telah Aktif")
     install()
     LOOP.run_until_complete(main())
