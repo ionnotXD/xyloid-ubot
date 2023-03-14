@@ -23,11 +23,11 @@ from .help import add_command_help
 
 absen = [
     "**Hadir bang Loid** 😁",
-    "**Maaf yah loid ganteng aku telat** 🥺",
-    "**Aku disini tuan Loid** 😁",
+    "**Hadir ganteng nya aku** 🥰",
+    "**Aku disini tuan Loid** 😋",
     "**Hadir ganteng nya akoeh** 🥵",
-    "**Always hadir bang** 😎",
-    "**Maaf yah sayang aku telat** 🥺",
+    "**Always hadir bang Loid** 😎",
+    "**Hadir maaf yah sayang aku telat** 🥺",
 ]
 
 
