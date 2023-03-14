@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
+from Xyloid.helpers.adminHelpers import DEVS
 from Xyloid.helpers.basic import edit_or_reply
 from Xyloid.utils import extract_user
 
