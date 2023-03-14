@@ -15,9 +15,9 @@ from pyrogram.enums import ChatType
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
-from Kazu.utils import extract_user
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
+from Xyloid.utils import extract_user
 
 from .help import add_command_help
 
@@ -25,9 +25,9 @@ from .help import add_command_help
 @Client.on_message(filters.command(["whois", "info"], cmd) & filters.me)
 async def who_is(client: Client, message: Message):
     user_id = await extract_user(message)
-    Kazu = await edit_or_reply(message, "`Processing . . .`")
+    Xyloid = await edit_or_reply(message, "`Processing . . .`")
     if not user_id:
-        return await Kazu.edit(
+        return await Xyloid.edit(
             "**Berikan userid/username/reply untuk mendapatkan info pengguna tersebut.**"
         )
     try:
@@ -80,14 +80,14 @@ async def who_is(client: Client, message: Message):
             )
             remove(photo)
         else:
-            await Kazu.edit(out_str, disable_web_page_preview=True)
+            await Xyloid.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Kazu.edit(f"**INFO:** `{e}`")
+        return await Xyloid.edit(f"**INFO:** `{e}`")
 
 
 @Client.on_message(filters.command(["chatinfo", "cinfo", "ginfo"], cmd) & filters.me)
 async def chatinfo_handler(client: Client, message: Message):
-    Kazu = await edit_or_reply(message, "`Processing...`")
+    Xyloid = await edit_or_reply(message, "`Processing...`")
     try:
         if len(message.command) > 1:
             chat_u = message.command[1]
@@ -130,7 +130,7 @@ async def chatinfo_handler(client: Client, message: Message):
         if photo_id:
             photo = await client.download_media(photo_id)
             await gather(
-                Kazu.delete(),
+                Xyloid.delete(),
                 client.send_photo(
                     message.chat.id,
                     photo,
@@ -140,9 +140,9 @@ async def chatinfo_handler(client: Client, message: Message):
             )
             remove(photo)
         else:
-            await Kazu.edit(out_str, disable_web_page_preview=True)
+            await Xyloid.edit(out_str, disable_web_page_preview=True)
     except Exception as e:
-        return await Kazu.edit(f"**INFO:** `{e}`")
+        return await Xyloid.edit(f"**INFO:** `{e}`")
 
 
 add_command_help(
