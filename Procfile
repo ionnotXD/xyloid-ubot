@@ -1,1 +1,1 @@
-worker: python3 -m Kazu
+worker: python3 -m Xyloid
