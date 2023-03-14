@@ -16,7 +16,7 @@ from config import CMD_HANDLER as cmd
 from Xyloid import BOTLOG_CHATID
 from Xyloid.helpers.msg_types import Types, get_message_type
 from Xyloid.helpers.parser import escape_markdown, mention_markdown
-from Xyloid.helpers.SQL.afk_db import get_afk, set_afk
+from.help import *
 from Xyloid.modules.help import add_command_help
 
 # Set priority to 11 and 12
