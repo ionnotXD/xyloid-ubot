@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, String, UnicodeText
 
-from Kazu.helpers.SQL import BASE, SESSION
+from Xyloid.helpers.SQL import BASE, SESSION
 
 Owner = 0
 
