@@ -10,7 +10,7 @@
 import os
 from distutils.util import strtobool
 from os import getenv
-from Kazu.helpers.cmd import cmd
+from Xyloid.helpers.cmd import cmd
 
 from dotenv import load_dotenv
 
