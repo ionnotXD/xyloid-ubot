@@ -14,7 +14,7 @@ from pyrogram.raw import functions
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.PyroHelpers import ReplyCheck
 
 from .help import add_command_help
 
