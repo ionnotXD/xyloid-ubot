@@ -14,10 +14,10 @@ from pyrogram.types import Message
 
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
-from Kazu.utils import extract_user
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
+from Xyloid.utils import extract_user
 
 from .help import add_command_help
 
@@ -31,7 +31,7 @@ async def ngejamet(client: Client, message: Message):
         )
     xx = await edit_or_reply(message, "**WOII**")
     await asyncio.sleep(1.5)
-    await xx.edit("**JAMET**")
+    await xx.edit("**WOII JAMET**")
     await asyncio.sleep(1.5)
     await xx.edit("**CUMA MAU BILANG**")
     await asyncio.sleep(1.5)
@@ -39,7 +39,7 @@ async def ngejamet(client: Client, message: Message):
     await asyncio.sleep(1.5)
     await xx.edit("**EMANG KENAL?**")
     await asyncio.sleep(1.5)
-    await xx.edit("**GAUSAH REPLY**")
+    await xx.edit("**GAUSAH REPLY' GUA**")
     await asyncio.sleep(1.5)
     await xx.edit("**KITA BUKAN KAWAN**")
     await asyncio.sleep(1.5)
@@ -58,7 +58,7 @@ async def ywc(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "ok sama sama",
+            "ok sama dua",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -75,7 +75,7 @@ async def toxicpp(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "PASANG PP DULU GOBLOK,BIAR ORANG-ORANG PADA TAU BETAPA HINA NYA MUKA LU 😆",
+            "PASANG PP DULU GOBLOK,BIAR ORANG-ORANG PADA TAU BETAPA HINA NYA MUKA LU YANG KAYA KUTIL BADAK 😆",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -109,7 +109,7 @@ async def toxicso(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "GAUSAH SOKAB SAMA GUA GOBLOK, LU BABU GA LEVEL!!",
+            "GAUSAH SOKAB SAMA GUA GOBLOK, LO BABU GA LEVEL KITA BEDA KASTA YAH ANJENG!!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -130,7 +130,7 @@ async def toxicnb(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "MAEN BOT MULU ALAY NGENTOTT, KESANNYA NORAK GOBLOK!!!",
+            "MAEN BOT MULU ALAY NGENTOTT,  NORAK BANGET GOBLOK KESANNYA!!!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -164,7 +164,7 @@ async def toxicwer(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "WAR WAR PALAK BAPAK KAU WAR, SOK KERAS BANGET GOBLOK, DI TONGKRONGAN JADI BABU, DI TELE SOK JAGOAN.",
+            "WAR WAR WER WOR MENTAL MASI PATUNGAN AJA SO'AN WAR WAR,MENDING BANTUIN BAPA LO AJA SONO NGARIT SAWAH",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -181,7 +181,7 @@ async def toxicwartai(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "WAR WAR TAI ANJING, KETRIGGER MINTA SHARELOK LU KIRA MAU COD-AN GOBLOK, BACOTAN LU AJA KGA ADA KERAS KERASNYA GOBLOK",
+            "WAR WAR TAI ANJING, KETRIGGER MINTA SHARELOK LU KIRA MAU COD-AN GOBLOK, KURIR SHOPEE LO KALAH ARGUMENT NGAJAK COD WKWK",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -215,7 +215,7 @@ async def toxicded(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "MATI AJA LU GOBLOK, GAGUNA LU HIDUP DI BUMI",
+            "MATI AJA LO KAUM HINA,LO HIDUP CUMA JADI HAMA DOANG DI DUNIA",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -249,7 +249,7 @@ async def toxicgembel(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "MUKA BAPAK LU KEK KELAPA SAWIT ANJING, GA USAH NGATAIN ORANG, MUKA LU AJA KEK GEMBEL TEXAS GOBLOK!!",
+            "BAPAK LU SINI GUA TIMPA MAKEK KELAPA SAWIT ANJING, MUKA BULUK DEKIL ITEM GRADAGAN AJA TENGIL. MENDING LO NGUMPUL SAMA TEMEN TEMEN HUMAN SILVER LO AJA GOBLOG!!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -266,7 +266,7 @@ async def toxiccuih(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "GAK KEREN LO KEK BEGITU GOBLOK, KELUARGA LU BAWA SINI GUA LUDAHIN SATU-SATU. CUIHH!!!",
+            "GAK KEREN LO KEK BEGITU GOBLOK, KELUARGA LU BAWA SINI GUA LUDAHIN SATU-SATU MUKA NYA YANG HINA ITU. CUIHH!!!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -304,7 +304,7 @@ async def toxicgcs(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "GC SAMPAH KAYA GINI, BUBARIN AJA GOBLOK!!",
+            "GC SAMPAH KAYA GINI, BUBARIN AJA BANGSAT GA GUNA JUGA DI TELE CUMA BISA BUAT NONTON BOKEP DOANG ANJING!!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -321,7 +321,7 @@ async def toxicskb(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "EMANG KITA KENAL? KAGA GOBLOK SOKAB BANGET LU GOBLOK",
+            "LOH? LO SIAPA AJG? SOKAB BET TAI ROMAN NYA AMA GUA HAHA LAU NGR FANS YH AMA OGUT",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -336,7 +336,7 @@ async def toxicvirtual(client: Client, message: Message):
         )
     xx = await edit_or_reply(message, "**OOOO**")
     await asyncio.sleep(1.5)
-    await xx.edit("**INI YANG VIRTUAL**")
+    await xx.edit("**INI YANG KENA TRUST ISSUE DI VIRTUAL**")
     await asyncio.sleep(1.5)
     await xx.edit("**YANG KATANYA SAYANG BANGET**")
     await asyncio.sleep(1.5)
