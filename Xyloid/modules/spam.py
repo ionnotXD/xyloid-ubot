@@ -15,8 +15,8 @@ from pyrogram.types import Message
 
 from config import BLACKLIST_CHAT, BOTLOG_CHATID
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.utils.misc import extract_args
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.utils.misc import extract_args
 
 from .help import add_command_help
 
