@@ -1,4 +1,4 @@
-<img src="https://.https://telegraph/file/040ccc557060b69dc4473.jpg ">
+<img src="https://.https://telegraph/file/2e0bec69780391b320403.jpg">
 
 <p align="center"> 🔥 Xyloid-Userbot 🔥 </p>
 
@@ -31,12 +31,12 @@
 
 ## Heroku Deploy!
 <h3 align="center">Click The Button</h3>
-<a href="https://heroku.com/deploy?template=https://github.com/ionmusic/PyroZu-Userbot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
+<a href="https://heroku.com/deploy?template=https://github.com/axallll/xyloid-ubot.git"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
 </div>
 
 
 ## Thanks to 
-- [Zaid](https://github.com/ITZ-ZAID)
+- [Shicyy](https://github.com/)
 - [OnlyMeriz](https://github.com/Onlymeriz)
 - [Kazu](https://github.com/ionmusic)
 
