@@ -2,11 +2,11 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as kaz
 from pyrogram.errors import MessageNotModified
-from Kazu.helpers.basic import *
-from Kazu.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import *
+from Xyloid.helpers.adminHelpers import DEVS
 from config import *
 from config import CMD_HANDLER as cmd
-from Kazu.utils import *
+from Xyloid.utils import *
 
 import requests
 import os
