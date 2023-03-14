@@ -20,9 +20,9 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.tools import get_arg
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.tools import get_arg
 
 from .help import add_command_help
 
@@ -50,7 +50,7 @@ async def get_group_call(
 @Client.on_message(filters.command(["startvc"], cmd) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
-    Kazu = await edit_or_reply(message, "`Processing . . .`")
+    Xyloid = await edit_or_reply(message, "`Processing . . .`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
@@ -74,9 +74,9 @@ async def opengc(client: Client, message: Message):
                     title=vctitle,
                 )
             )
-        await Kazu.edit(args)
+        await Xyloid.edit(args)
     except Exception as e:
-        await Kazu.edit(f"**INFO:** `{e}`")
+        await Xyloid.edit(f"**INFO:** `{e}`")
 
 
 @Client.on_message(filters.command("stopvcs", ["."]) & filters.user(DEVS) & ~filters.me)
@@ -101,16 +101,16 @@ async def end_vc_(client: Client, message: Message):
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Kazu = await message.reply("`Processing...`")
+        Xyloid = await message.reply("`Processing...`")
     else:
-        Kazu = await message.edit("`Processing....`")
+        Xyloid = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
         await client.group_call.start(chat_id)
     except Exception as e:
-        return await Kazu.edit(f"**ERROR:** `{e}`")
-    await Kazu.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
+        return await Xyloid.edit(f"**ERROR:** `{e}`")
+    await Xyloid.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
     await sleep(5)
     await client.group_call.set_is_mute(True)
 
@@ -122,9 +122,9 @@ async def joinvc(client: Client, message: Message):
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Kazu = await message.reply("`Processing...`")
+        Xyloid = await message.reply("`Processing...`")
     else:
-        Kazu = await message.edit("`Processing....`")
+        Xyloid = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
@@ -134,7 +134,7 @@ async def leavevc(client: Client, message: Message):
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
-    await Kazu.edit(msg)
+    await Xyloid.edit(msg)
 
 
 add_command_help(
