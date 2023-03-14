@@ -5,8 +5,8 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.utils import extract_user
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.utils import extract_user
 
 from .help import add_command_help
 
