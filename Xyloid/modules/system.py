@@ -14,8 +14,8 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import BOTLOG_CHATID, LOGGER
-from Kazu.helpers.basic import edit_or_reply
+from Xyloid import BOTLOG_CHATID, LOGGER
+from Xyloid.helpers.basic import edit_or_reply
 
 from .help import add_command_help
 
@@ -34,7 +34,7 @@ async def restart_bot(_, message: Message):
     if HAPP is not None:
         HAPP.restart()
     else:
-        args = [sys.executable, "-m", "Kazu"]
+        args = [sys.executable, "-m", "Loid"]
         execle(sys.executable, *args, environ)
 
 
@@ -44,9 +44,9 @@ async def shutdown_bot(client: Client, message: Message):
         await client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**PyroZu-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**Xyloid-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(message, "**PyroZu-Userbot Berhasil di matikan!**")
+    await edit_or_reply(message, "**Xyloid-Userbot Berhasil di matikan!**")
     if HAPP is not None:
         HAPP.process_formation()["worker"].scale(0)
     else:
@@ -66,7 +66,7 @@ async def logs_ubot(client: Client, message: Message):
     await client.send_document(
         message.chat.id,
         "Logs-Heroku.txt",
-        thumb="Kazu/resources/logo.jpg",
+        thumb="Xyloid/resources/logo.jpg",
         caption="**Ini Logs Heroku anda**",
     )
     await Man.delete()
