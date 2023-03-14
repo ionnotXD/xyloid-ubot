@@ -14,26 +14,26 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import *
-from Kazu import *
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.constants import First
+from Xyloid import *
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.constants import First
 
 from .help import add_command_help
 
 absen = [
-    "**Hadir bang** 😁",
-    "**Hadir kak** 😉",
-    "**Hadir dong** 😁",
-    "**Hadir ganteng** 🥵",
-    "**Hadir bro** 😎",
-    "**Hadir kak maap telat** 🥺",
+    "**Hadir bang Loid** 😁",
+    "**Maaf yah loid ganteng aku telat** 🥺",
+    "**Aku disini tuan Loid** 😁",
+    "**Hadir ganteng nya akoeh** 🥵",
+    "**Always hadir bang** 😎",
+    "**Maaf yah sayang aku telat** 🥺",
 ]
 
 
 @Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply("**Saya Hadir Tuan Kazu**")
+    await message.reply("**Saya Hadir Tuan Loid**")
 
 
 @Client.on_message(filters.command("repo", cmd) & filters.me)
