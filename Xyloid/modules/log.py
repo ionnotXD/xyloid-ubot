@@ -13,11 +13,11 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import BOTLOG_CHATID
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.SQL import no_log_pms_sql
-from Kazu.helpers.SQL.globals import addgvar, gvarstatus
-from Kazu.helpers.tools import get_arg
+from Xyloid import BOTLOG_CHATID
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.SQL import no_log_pms_sql
+from Xyloid.helpers.SQL.globals import addgvar, gvarstatus
+from Xyloid.helpers.tools import get_arg
 
 from .help import add_command_help
 
