@@ -14,11 +14,11 @@ from pyrogram import Client, enums, filters, raw
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu import *
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.PyroHelpers import ReplyCheck
-from Kazu.helpers.tools import get_arg
-from Kazu.utils import s_paste
+from Xyloid import *
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.PyroHelpers import ReplyCheck
+from Xyloid.helpers.tools import get_arg
+from Xyloid.utils import s_paste
 
 from .help import *
 
