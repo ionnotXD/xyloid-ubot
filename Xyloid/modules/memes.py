@@ -7,7 +7,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from Kazu.helpers.basic import get_text
+from Xyloid.helpers.basic import get_text
 
 from .help import *
 
