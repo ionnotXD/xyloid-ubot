@@ -1,4 +1,4 @@
-<img src="https://.https://telegraph/file/2e0bec69780391b320403.jpg">
+<img src="https://https://telegraph/file/2e0bec69780391b320403.jpg">
 
 <p align="center"> 🔥 Xyloid-Userbot 🔥 </p>
 
@@ -12,7 +12,7 @@
 ```console
  $ sudo apt-get update -y
  $ sudo apt-get upgrade
- $ git clone https://https://github.com/axallll/xyloid-ubot.git
+ $ git clone https://github.com/axallll/xyloid-ubot.git
  $ cd Xyloid-Userbot
  $ python3 -m venv venv
  $ source venv/bin/act*
