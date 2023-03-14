@@ -26,13 +26,13 @@ from pyrogram.types import Message
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from Kazu.helpers.adminHelpers import DEVS
-from Kazu.helpers.basic import edit_or_reply
-from Kazu.helpers.misc import HAPP, XCB
-from Kazu.helpers.tools import get_arg
-from Kazu.utils.misc import restart
-from Kazu.utils.pastebin import PasteBin
-from Kazu.utils.tools import bash
+from Xyloid.helpers.adminHelpers import DEVS
+from Xyloid.helpers.basic import edit_or_reply
+from Xyloid.helpers.misc import HAPP, XCB
+from Xyloid.helpers.tools import get_arg
+from Xyloid.utils.misc import restart
+from Xyloid.utils.pastebin import PasteBin
+from Xyloid.utils.tools import bash
 
 from .help import add_command_help
 
@@ -192,7 +192,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`PyroZu-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
+            "Xyloid-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
         )
     else:
         try:
@@ -201,9 +201,9 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "`PyroZu-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
+            "Xyloid-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "Kazu"]
+        args = [sys.executable, "-m", "Loid"]
         execle(sys.executable, *args, environ)
         return
 
@@ -270,7 +270,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["update", "Untuk melihat list pembaruan terbaru dari PyroZu-Userbot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari Xyloid-Userbot."],
         ["update deploy", "Untuk mengupdate userbot."],
     ],
 )
