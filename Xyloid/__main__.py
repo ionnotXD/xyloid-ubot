@@ -42,6 +42,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("Kazu").info("Xyloid-Userbot Telah Aktif")
+    LOGGER("Xyloid").info("Xyloid-Userbot Telah Aktif")
     install()
     LOOP.run_until_complete(main())
