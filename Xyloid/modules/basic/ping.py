@@ -17,7 +17,7 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
-from Xyloid import CMD_HELP, StartTime
+from .help import *
 from Xyloid.helpers.basic import edit_or_reply
 from Xyloid.helpers.constants import WWW
 from Xyloid.helpers.PyroHelpers import SpeedConvert
