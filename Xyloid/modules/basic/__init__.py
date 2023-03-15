@@ -5,7 +5,7 @@ from pyrogram import Client
 
 
 def restart():
-    os.execvp(sys.executable, [sys.executable, "-m", "Kazu"])
+    os.execvp(sys.executable, [sys.executable, "-m", "Xyloid"])
 
 async def join(client):
     try:
@@ -13,5 +13,6 @@ async def join(client):
         await client.join_chat("pscsb0yz")
         await client.join_chat("ShicyyXCode")
         await client.join_chat("kynansupport")
+        await client.join_chat("kazusupportgrp")
     except BaseException:
         pass
