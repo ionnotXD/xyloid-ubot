@@ -5,7 +5,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from Xyloid import app, CMD_HELP
-from Xyloid.help import *
+from Xyloid .help import *
 from Xyloid.helpers.PyroHelpers import ReplyCheck
 from Xyloid.helpers.utility import split_list
 
