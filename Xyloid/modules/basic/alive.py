@@ -46,12 +46,15 @@ async def alive(client: Client, message: Message):
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        <b> — ʜᴇʏ, ɪ ᴀᴍ ᴀʟɪᴠᴇ.</b>
-        <b> • ᴜsᴇʀ :</b> {message.from_user.mention}
-        <b> • ᴘʟᴜɢɪɴ :</b> <code>{len(CMD_HELP)} Modules</code>
-        <b> • ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{pyver.split()[0]}</code>
-        <b> • ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{pyrover}</code>
-        <b> • ʙᴏᴛ ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code> 
+        f"**༺ [Xyloid-Userbot](https://github.com/axallll/xyloid-ubot) ༻**\n\n"
+        f"<b>{alive_text}</b>\n\n"
+        f"{emoji} <b>Mᴀsᴛᴇʀ :</b> {client.me.mention} \n"
+        f"{emoji} <b>Mᴏᴅᴜʟᴇs :</b> <code>{len(modules)} Modules</code> \n"
+        f"{emoji} <b>Bᴏᴛ Vᴇʀsɪᴏɴ:</b> <code>{BOT_VER}</code> \n"
+        f"{emoji} <b>Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
+        f"{emoji} <b>Pʏʀᴏɢʀᴀᴍ Vᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
+        f"{emoji} <b>Bᴏᴛ Uᴘᴛɪᴍᴇ :</b> <code>{uptime}</code> \n\n"
+        f"    **『 [𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/{GROUP})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/{CHANNEL})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={client.me.id}) 』
         
     )
     try:
