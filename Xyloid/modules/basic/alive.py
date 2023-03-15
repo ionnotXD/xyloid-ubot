@@ -39,19 +39,21 @@ emoji = gvarstatus("ALIVE_EMOJI") or "『★』"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "✨ᴘʀᴇᴍɪᴜᴍ✨"
 
 
-@Client.on_message(filters.command(["alive", "xyloid"], "") & filters.me)
+@Client.on_message(filters.command(["alive", "awake"], cmd) & filters.me)
 async def alive(client: Client, message: Message):
-    Xyloid = await edit_or_reply(message, "🤟🏻")
+    Xyloid = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**xyloidUserbot**\n"
-        f"  <b>Status : </b>**𝘗𝘙𝘌𝘔𝘐𝘜𝘔**\n"
-        f"   <b>Master :</b> {client.me.mention} \n"
-        f"   <b>Modules :</b> <code>{len(modules)} Modules</code> \n"
-        f"   <b>Bot Version :</b> <code>{BOT_VER}</code> \n"
-        f"   <b>Bot Uptime :</b> <code>{uptime}</code>\n")
+        <b> — ʜᴇʏ, ɪ ᴀᴍ ᴀʟɪᴠᴇ.</b>
+        <b> • ᴜsᴇʀ :</b> {message.from_user.mention}
+        <b> • ᴘʟᴜɢɪɴ :</b> <code>{len(CMD_HELP)} Modules</code>
+        <b> • ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{pyver.split()[0]}</code>
+        <b> • ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{pyrover}</code>
+        <b> • ʙᴏᴛ ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code> 
+        
+    )
     try:
         await asyncio.gather(
             Xyloid.delete(),
