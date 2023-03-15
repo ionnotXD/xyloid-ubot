@@ -17,7 +17,7 @@ from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
-from.help import *
+from Xyloid import CMD_HELP, StartTime
 from Xyloid.helpers.basic import edit_or_reply
 from Xyloid.helpers.constants import WWW
 from Xyloid.helpers.PyroHelpers import SpeedConvert
@@ -78,8 +78,7 @@ async def pingme(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"❏ **xʏʟᴏɪᴅ-Usᴇʀʙᴏᴛ ✨**\n"
-        f"├• **Pɪɴɢᴇʀ** - `%sms`\n"
+        f"❏ **PONG!!🏓** - `%sms`\n"
         f"├• **Uᴘᴛɪᴍᴇ -** `{uptime}` \n"
         f"└• **Oᴡɴᴇʀ :** {client.me.mention}" % (duration)
     )
